@@ -1,11 +1,10 @@
-/* Color + Type System (CSS Variables) */
 :root {
-  --brand: #2563eb;
-  --brand-hover: #1d4ed8;
-  --ink: #1e293b;
+  --brand: #1d4ed8;
+  --ink-primary: #0f172a;   /* High contrast dark text */
+  --ink-secondary: #334155; /* Readable body copy */
   --bg-light: #f8fafc;
   --card-bg: #ffffff;
-  --border: #e2e8f0;
+  --border: #cbd5e1;
   --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
@@ -17,7 +16,7 @@
 
 body {
   font-family: var(--font-main);
-  color: var(--ink);
+  color: var(--ink-secondary);
   background-color: var(--bg-light);
   line-height: 1.6;
 }
@@ -27,7 +26,7 @@ img {
   height: auto;
 }
 
-/* Header & Flexbox Navigation */
+/* Flexbox Navigation */
 header {
   display: flex;
   justify-content: space-between;
@@ -35,8 +34,6 @@ header {
   padding: 1.25rem 2rem;
   background-color: var(--card-bg);
   border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
 }
 
 header .logo {
@@ -53,16 +50,11 @@ nav ul {
 
 nav a {
   text-decoration: none;
-  color: var(--ink);
-  font-weight: 500;
-  transition: color 0.2s ease;
+  color: var(--ink-primary);
+  font-weight: 600;
 }
 
-nav a:hover {
-  color: var(--brand);
-}
-
-/* Main Content & Sections */
+/* Main Section */
 main {
   max-width: 900px;
   margin: 0 auto;
@@ -70,20 +62,21 @@ main {
 }
 
 #about {
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 }
 
 #about h1 {
+  color: var(--ink-primary);
   font-size: 2.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 #projects h2 {
-  font-size: 1.75rem;
+  color: var(--ink-primary);
   margin-bottom: 1.5rem;
 }
 
-/* Projects Grid Layout (Mobile-first default: 1 column) */
+/* CSS Grid Layout (1 column default mobile) */
 .projects-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -95,34 +88,20 @@ main {
   border: 1px solid var(--border);
   padding: 1.5rem;
   border-radius: 8px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .project-card h3 {
+  color: var(--ink-primary);
   margin-bottom: 0.5rem;
-}
-
-.project-card p {
-  color: #64748b;
-  margin-bottom: 1rem;
 }
 
 .project-card a {
   color: var(--brand);
+  font-weight: 700;
   text-decoration: none;
-  font-weight: 600;
 }
 
-.project-card a:hover {
-  color: var(--brand-hover);
-}
-
-/* Footer / Contact */
+/* Footer / Contact Links */
 footer {
   background-color: var(--card-bg);
   border-top: 1px solid var(--border);
@@ -130,29 +109,20 @@ footer {
   padding: 3rem 1.5rem 2rem;
 }
 
-footer h2 {
-  margin-bottom: 1rem;
-}
-
 .contact-links {
   display: flex;
   justify-content: center;
   gap: 1.5rem;
-  margin-bottom: 2rem;
+  margin: 1rem 0;
 }
 
 .contact-links a {
   color: var(--brand);
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
 }
 
-.copyright {
-  font-size: 0.875rem;
-  color: #94a3b8;
-}
-
-/* Responsive Media Query Breakpoint (Desktop: 2 Columns) */
+/* Responsive Media Query Breakpoint (Desktop 2-columns) */
 @media (min-width: 640px) {
   .projects-grid {
     grid-template-columns: repeat(2, 1fr);
