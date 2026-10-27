@@ -1,0 +1,160 @@
+/* Color + Type System (CSS Variables) */
+:root {
+  --brand: #2563eb;
+  --brand-hover: #1d4ed8;
+  --ink: #1e293b;
+  --bg-light: #f8fafc;
+  --card-bg: #ffffff;
+  --border: #e2e8f0;
+  --font-main: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--ink);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Header & Flexbox Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+}
+
+header .logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--brand);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--brand);
+}
+
+/* Main Content & Sections */
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+#about {
+  margin-bottom: 4rem;
+}
+
+#about h1 {
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+#projects h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Projects Grid Layout (Mobile-first default: 1 column) */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #64748b;
+  margin-bottom: 1rem;
+}
+
+.project-card a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-card a:hover {
+  color: var(--brand-hover);
+}
+
+/* Footer / Contact */
+footer {
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 3rem 1.5rem 2rem;
+}
+
+footer h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.contact-links a {
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.copyright {
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+/* Responsive Media Query Breakpoint (Desktop: 2 Columns) */
+@media (min-width: 640px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
